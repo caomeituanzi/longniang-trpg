@@ -1,0 +1,773 @@
+{
+  "format": "longniang-trpg/scenario@1",
+  "title": "雾港旅店",
+  "intro": "民国年间的海边小镇，大雾封了出镇的路。一家旅店里出了命案，住客各怀心事，凶手就在你们当中。",
+  "genre": "民国悬疑",
+  "tone": "大雾封港的小镇，阴冷压抑，带一点人情味",
+  "players": {
+    "min": 1,
+    "max": 6
+  },
+  "expectedDays": 3,
+  "relation": "secrets",
+  "stress": false,
+  "start": {
+    "label": "民国二十年十月，一个起大雾的晚上",
+    "day": 1,
+    "time": "22:00"
+  },
+  "safety": {
+    "avoid": []
+  },
+  "opening": {
+    "background": "民国二十年深秋。雾港是江南的一座小海港，靠打鱼和往来上海的客船过日子。镇上最大的旅店叫“雾港旅店”，老板娘沈三娘守寡以后，一个人撑起了这份家业。",
+    "situation": "傍晚起了一场大雾，海上什么都看不见，船全停了，你们被困在了旅店里。晚饭后，账房先生周墨一直没露面。晚上十点，伙计阿福提着灯下地窖取酒，忽然一声尖叫——周墨倒在地窖楼梯底下，已经没气了。老板娘赶来看了一眼，说他是喝多了酒，自己摔下去的。阿福在一旁小声嘀咕：“周先生……从来不喝酒的。”",
+    "known": [
+      "大雾至少要两三天才会散，散之前不会有船进出",
+      "镇上的警察局在三里外，电话线断了，要等天亮才能派人去报案",
+      "旅店里还住着做海货生意的黄五爷，和他带来的伙计刘贵",
+      "周墨在这家旅店当了五年账房"
+    ]
+  },
+  "roles": [
+    {
+      "key": "reporter",
+      "name": "上海来的记者",
+      "public": "《申报》的外勤记者，说是来雾港写渔村风俗的。",
+      "secret": "你其实是来见线人的：账房先生周墨半个月前写信给报馆，说手里有一桩“能登头版”的大新闻，约你今晚面谈。你还没见到他，他就死了。",
+      "goal": "弄清周墨要给你的新闻是什么，把它登上报纸。",
+      "startLocation": "lobby",
+      "suggestedSpecialties": [
+        "打听消息",
+        "速记"
+      ],
+      "attributes": {
+        "body": 0,
+        "agility": 1,
+        "intellect": 2,
+        "perception": 1,
+        "charm": -1
+      },
+      "specialties": [
+        "打听消息",
+        "速记"
+      ],
+      "appearance": "二十出头，短头发，脖子上挂着一台旧相机。"
+    },
+    {
+      "key": "doctor",
+      "name": "回乡的留洋医生",
+      "public": "刚从日本学医回国，在雾港转船回老家行医。",
+      "secret": "你在上海欠了一笔赌债，债主正是黄五爷。晚饭时他笑着对你说：“周先生要是出了什么意外，大夫可得说句公道话。”现在周墨真的死了。",
+      "goal": "既不想被黄五爷拿捏，也不想昧着良心，找到两全的办法。",
+      "startLocation": "lobby",
+      "suggestedSpecialties": [
+        "医生",
+        "日语"
+      ],
+      "attributes": {
+        "body": -1,
+        "agility": 0,
+        "intellect": 2,
+        "perception": 1,
+        "charm": 1
+      },
+      "specialties": [
+        "医生",
+        "日语"
+      ],
+      "appearance": "戴圆框眼镜，提着一只旧皮箱。"
+    },
+    {
+      "key": "detective",
+      "name": "私家侦探",
+      "public": "上海的私家侦探，自称来雾港找一个离家出走的小少爷。",
+      "secret": "沈三娘亡夫的哥哥沈大爷雇你暗中查账：旅店生意一直不错，钱却怎么也对不上。周墨是你最想问话的人。",
+      "goal": "查清旅店的钱到底去了哪里，向雇主交差。",
+      "startLocation": "guest-rooms",
+      "suggestedSpecialties": [
+        "跟踪",
+        "开锁"
+      ],
+      "attributes": {
+        "body": 1,
+        "agility": 2,
+        "intellect": 1,
+        "perception": 0,
+        "charm": -1
+      },
+      "specialties": [
+        "跟踪",
+        "开锁"
+      ],
+      "appearance": "灰呢子大衣，帽檐压得很低。"
+    },
+    {
+      "key": "customs",
+      "name": "海关稽查员",
+      "public": "江海关的小职员，说是来雾港催收税款的。",
+      "secret": "你在暗中追查一条往上海走私鸦片的线，线索指向雾港。上司提醒过你：海关里有人收了码头帮的钱，别轻易亮明身份。",
+      "goal": "人赃并获，抓住走私的人。",
+      "startLocation": "lobby",
+      "suggestedSpecialties": [
+        "查验货物",
+        "枪械"
+      ],
+      "attributes": {
+        "body": 1,
+        "agility": 1,
+        "intellect": 0,
+        "perception": 2,
+        "charm": -1
+      },
+      "specialties": [
+        "查验货物",
+        "枪械"
+      ],
+      "appearance": "穿着洗旧的制服，腰里别着一本税单。"
+    },
+    {
+      "key": "young-master",
+      "name": "离家出走的少爷",
+      "public": "说是在雾港等船去南洋闯荡的年轻人，穿得体面，口袋里却没几个钱。",
+      "secret": "你是上海一户人家离家出走的小少爷，盘缠早就花光了。前天你把母亲给的玉镯当在了钱记当铺，听钱掌柜随口提了一句：周先生前几天也来过，在他那儿存了一样要紧的东西。住在你隔壁的私家侦探说他是来找一个离家出走的小少爷的，你不知道他找的是不是你。",
+      "goal": "赎回母亲的玉镯，别被人认出来送回家；要是能弄到一笔去南洋的盘缠就更好了。",
+      "startLocation": "guest-rooms",
+      "suggestedSpecialties": [
+        "察言观色",
+        "赌术"
+      ],
+      "attributes": {
+        "body": -1,
+        "agility": 1,
+        "intellect": 0,
+        "perception": 1,
+        "charm": 2
+      },
+      "specialties": [
+        "察言观色",
+        "赌术"
+      ],
+      "appearance": "西装笔挺，皮鞋却磨破了边。"
+    },
+    {
+      "key": "sailor",
+      "name": "顺风号的水手",
+      "public": "顺风号上的年轻水手，雾天出不了海，来旅店喝两杯，结果也被雾困住了。",
+      "secret": "顺风号每隔半个月就会趁夜多装一批货，船老大老马从不让你们碰那些箱子，只说是“黄五爷的海货”。今天傍晚你在码头看见刘贵和老马凑在一起嘀咕，听见了“账房”两个字。船老大待你不薄，你怕说出来丢了饭碗，也怕惹上官司。",
+      "goal": "弄清船上那些箱子里到底装的是什么，再决定是护着船老大，还是把事情说出来。",
+      "startLocation": "lobby",
+      "suggestedSpecialties": [
+        "驾船",
+        "水性"
+      ],
+      "attributes": {
+        "body": 2,
+        "agility": 1,
+        "intellect": -1,
+        "perception": 1,
+        "charm": 0
+      },
+      "specialties": [
+        "驾船",
+        "水性"
+      ],
+      "appearance": "晒得黝黑，胳膊上有一道缆绳勒出的疤。"
+    }
+  ],
+  "locations": [
+    {
+      "key": "lobby",
+      "name": "大堂",
+      "description": "旅店一楼的大堂兼饭厅。柜台后面挂着一排钥匙和一本住客登记簿，墙上有一排挂马灯的铜钩。壁炉烧得正旺，窗外只有白茫茫的雾。",
+      "exits": [
+        {
+          "to": "ledger-room",
+          "minutes": 1
+        },
+        {
+          "to": "guest-rooms",
+          "minutes": 1
+        },
+        {
+          "to": "kitchen",
+          "minutes": 1
+        },
+        {
+          "to": "street",
+          "minutes": 2
+        }
+      ],
+      "features": [
+        "柜台和住客登记簿",
+        "墙上挂马灯的铜钩，空了一个",
+        "老板娘沈三娘常在这里"
+      ],
+      "x": 50,
+      "y": 54
+    },
+    {
+      "key": "ledger-room",
+      "name": "账房",
+      "description": "大堂旁边的小房间。一张旧书桌，一个上了锁的铁皮柜，桌上摊着账本和一张吸墨纸。",
+      "exits": [
+        {
+          "to": "lobby",
+          "minutes": 1
+        }
+      ],
+      "features": [
+        "账本",
+        "吸墨纸",
+        "上锁的铁皮柜，钥匙在周墨身上"
+      ],
+      "x": 66,
+      "y": 64
+    },
+    {
+      "key": "guest-rooms",
+      "name": "二楼客房",
+      "description": "二楼的走廊又窄又暗，两边是客房。黄五爷住东头最好的那间，刘贵住他隔壁。",
+      "exits": [
+        {
+          "to": "lobby",
+          "minutes": 1
+        }
+      ],
+      "features": [
+        "黄五爷的房间",
+        "刘贵的房间",
+        "玩家们的房间"
+      ],
+      "x": 46,
+      "y": 72
+    },
+    {
+      "key": "kitchen",
+      "name": "后厨和后院",
+      "description": "后厨连着一个小院子。院子一角是地窖的木门，另一边的后门通向去码头的小巷。阿福就睡在后厨旁边的小隔间里。",
+      "exits": [
+        {
+          "to": "lobby",
+          "minutes": 1
+        },
+        {
+          "to": "cellar",
+          "minutes": 1
+        },
+        {
+          "to": "pier",
+          "minutes": 8
+        }
+      ],
+      "features": [
+        "地窖门",
+        "后门外小巷里的泥地",
+        "阿福的小隔间"
+      ],
+      "x": 30,
+      "y": 46
+    },
+    {
+      "key": "cellar",
+      "name": "地窖",
+      "description": "又湿又冷的地窖，石头楼梯很陡。酒坛堆在一边，另一边码着十几个钉死的木箱。周墨的尸体就躺在楼梯底下。",
+      "exits": [
+        {
+          "to": "kitchen",
+          "minutes": 1
+        }
+      ],
+      "features": [
+        "周墨的尸体",
+        "陡峭的石头楼梯",
+        "钉死的木箱",
+        "木箱后面的阴影"
+      ],
+      "x": 16,
+      "y": 58
+    },
+    {
+      "key": "pier",
+      "name": "码头",
+      "description": "雾里的码头只听得见浪声。几条渔船拴在木桩上，最大的一条船头写着“顺风号”。",
+      "exits": [
+        {
+          "to": "kitchen",
+          "minutes": 8
+        },
+        {
+          "to": "street",
+          "minutes": 10
+        }
+      ],
+      "features": [
+        "顺风号和船老大老马",
+        "码头边的仓棚"
+      ],
+      "x": 22,
+      "y": 18
+    },
+    {
+      "key": "street",
+      "name": "镇上街道",
+      "description": "雾里的小镇静得吓人。旅店门前的石板路通向镇中心，那里有一家还亮着灯的当铺。",
+      "exits": [
+        {
+          "to": "lobby",
+          "minutes": 2
+        },
+        {
+          "to": "pier",
+          "minutes": 10
+        },
+        {
+          "to": "pawnshop",
+          "minutes": 5
+        }
+      ],
+      "features": [
+        "往码头的路",
+        "往当铺的路"
+      ],
+      "x": 64,
+      "y": 34
+    },
+    {
+      "key": "pawnshop",
+      "name": "钱记当铺",
+      "description": "镇上唯一的当铺。钱掌柜就住在铺子后面，夜里敲门也会应。",
+      "exits": [
+        {
+          "to": "street",
+          "minutes": 5
+        }
+      ],
+      "features": [
+        "钱掌柜",
+        "柜台后面的保险柜"
+      ],
+      "x": 86,
+      "y": 22
+    }
+  ],
+  "truth": {
+    "summary": "周墨在旅店当账房时，发现地窖被码头帮用来藏鸦片，就偷偷记了一本暗账，想卖给出价最高的人。他约黄五爷的打手刘疤子晚上九点在地窖交易，同时也写信约了上海的记者。刘疤子不肯出钱，两人争执起来，刘疤子抄起从大堂借来的黄铜马灯砸死了周墨，再把尸体推下楼梯，装成失足摔死。刘疤子没找到暗账，因为周墨早把它寄存在了镇上的当铺。黄五爷事后知道了这件事，想把它压下去，等雾一散就带着刘疤子和货上船离开。",
+    "points": [
+      {
+        "key": "murder",
+        "text": "周墨不是失足摔死的：他在地窖里被人用黄铜马灯砸中后脑，然后被推下了楼梯。"
+      },
+      {
+        "key": "smuggling",
+        "text": "地窖里藏着码头帮黄五爷的鸦片，每半个月由顺风号趁夜运走；沈三娘因为亡夫欠黄五爷的债，被迫把地窖借给他们。"
+      },
+      {
+        "key": "ledger",
+        "text": "周墨偷偷记了一本暗账，记下每次走私的日子、货量和接头人，打算卖钱；暗账装在信封里，寄存在镇上的钱记当铺。"
+      },
+      {
+        "key": "killer",
+        "text": "凶手是黄五爷的打手刘疤子，化名刘贵住店。他瞒着黄五爷来找周墨买暗账，谈崩了就下了手；他没找到暗账，还在旅店里四处翻找。"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "key": "head-wound",
+      "title": "后脑的伤",
+      "content": "周墨后脑有一个圆形的凹陷，边缘很整齐。石头楼梯的棱角是直的，摔不出这种伤，更像是被圆底的重东西砸的。",
+      "location": "cellar",
+      "points": [
+        "murder"
+      ],
+      "how": "仔细检查尸体",
+      "check": {
+        "attribute": "intellect",
+        "modifier": 0
+      },
+      "core": true
+    },
+    {
+      "key": "lantern",
+      "title": "带血的马灯",
+      "content": "地窖里那堆木箱后面，藏着一盏黄铜马灯。圆形的灯座上沾着干掉的血，还缠着几根头发。",
+      "location": "cellar",
+      "points": [
+        "murder"
+      ],
+      "how": "仔细搜查地窖，特别是木箱后面",
+      "check": {
+        "attribute": "perception",
+        "modifier": 0
+      },
+      "core": true
+    },
+    {
+      "key": "missing-lantern",
+      "title": "少了一盏马灯",
+      "content": "大堂墙上的铜钩空了一个。沈三娘说那盏黄铜马灯傍晚还挂着；阿福记得，晚饭前刘贵借走过一盏灯。",
+      "location": "lobby",
+      "points": [
+        "murder",
+        "killer"
+      ],
+      "how": "留意大堂墙上的铜钩，或者问沈三娘、阿福",
+      "check": null,
+      "core": false
+    },
+    {
+      "key": "crates",
+      "title": "木箱里的东西",
+      "content": "撬开一个木箱，里面是一块块用油纸包好的黑色膏块，有一股甜腥味——是鸦片。箱子侧面用墨笔写着“顺风”两个字。",
+      "location": "cellar",
+      "points": [
+        "smuggling"
+      ],
+      "how": "撬开钉死的木箱",
+      "check": {
+        "attribute": "body",
+        "modifier": 0
+      },
+      "core": true
+    },
+    {
+      "key": "register",
+      "title": "登记簿上的刘贵",
+      "content": "住客登记簿上，“刘贵”是今天傍晚入住的。可阿福说上个月也见过这个人，那次登记的名字叫“刘四”，左脸上同样有一道刀疤。",
+      "location": "lobby",
+      "points": [
+        "killer"
+      ],
+      "how": "翻看住客登记簿，再向阿福打听",
+      "check": null,
+      "core": false
+    },
+    {
+      "key": "blotter",
+      "title": "吸墨纸上的字",
+      "content": "账房桌上的吸墨纸印着几行反过来的字，对着镜子能读出来：“九点 地窖 五百元 一手交钱一手交账”。",
+      "location": "ledger-room",
+      "points": [
+        "ledger",
+        "murder"
+      ],
+      "how": "搜查账房，留意桌上的吸墨纸",
+      "check": {
+        "attribute": "perception",
+        "modifier": -1
+      },
+      "core": true
+    },
+    {
+      "key": "torn-ledger",
+      "title": "被撕掉的账页",
+      "content": "账本缺了好几页，撕口还很新。剩下的页上，每隔半个月就有一笔“顺风号修船费”，数目大得离谱。",
+      "location": "ledger-room",
+      "points": [
+        "smuggling",
+        "ledger"
+      ],
+      "how": "翻看账本",
+      "check": {
+        "attribute": "intellect",
+        "modifier": 0
+      },
+      "core": false
+    },
+    {
+      "key": "raincoat",
+      "title": "没干的雨衣",
+      "content": "刘贵房里挂着一件还没干透的雨衣，袖口沾着地窖里的煤灰，下摆有一块暗红的斑点。",
+      "location": "guest-rooms",
+      "points": [
+        "killer"
+      ],
+      "how": "趁刘贵不在，溜进他的房间搜查",
+      "check": {
+        "attribute": "agility",
+        "modifier": 0
+      },
+      "core": false
+    },
+    {
+      "key": "telegram",
+      "title": "上海来的电报",
+      "content": "黄五爷房里有一封电报：“货勿失，账必回，人可弃。”",
+      "location": "guest-rooms",
+      "points": [
+        "smuggling",
+        "ledger"
+      ],
+      "how": "溜进黄五爷的房间，或者在他身边顺手牵羊",
+      "check": {
+        "attribute": "agility",
+        "modifier": -1
+      },
+      "core": false
+    },
+    {
+      "key": "witness",
+      "title": "阿福看见的人",
+      "content": "阿福终于说了实话：九点多他起来上茅房，看见一个穿雨衣的人从地窖口出来，手里提着一盏灯，灯光照见那人左脸上的一道疤。",
+      "location": "kitchen",
+      "points": [
+        "killer"
+      ],
+      "how": "让阿福开口：他吓坏了，得先让他安心",
+      "check": {
+        "attribute": "charm",
+        "modifier": 0
+      },
+      "core": true
+    },
+    {
+      "key": "boatman",
+      "title": "船老大的话",
+      "content": "顺风号的船老大老马收了钱，说漏了嘴：“明晚十一点还要去地窖搬一趟货，搬完就等雾散开船。”",
+      "location": "pier",
+      "points": [
+        "smuggling"
+      ],
+      "how": "去码头找船老大打听，最好带点钱",
+      "check": {
+        "attribute": "charm",
+        "modifier": 0
+      },
+      "core": false
+    },
+    {
+      "key": "pawn-envelope",
+      "title": "当铺里的信封",
+      "content": "钱掌柜从保险柜里取出周墨寄存的信封，里面是一本小账簿和一封信：“若我出了事，请把这本账交给《申报》。”账簿上记着两年来每一次走私的日子、货量和接头人。",
+      "location": "pawnshop",
+      "points": [
+        "ledger",
+        "smuggling"
+      ],
+      "how": "拿着周墨的当票去当铺，或者说服钱掌柜",
+      "check": {
+        "attribute": "charm",
+        "modifier": -1
+      },
+      "core": true
+    },
+    {
+      "key": "pawn-ticket",
+      "title": "贴身的当票",
+      "content": "周墨的内衣口袋里缝着一张钱记当铺的当票，当的是一块怀表，日期是三天前。",
+      "location": "cellar",
+      "points": [
+        "ledger"
+      ],
+      "how": "搜查周墨的尸体",
+      "check": null,
+      "core": false
+    },
+    {
+      "key": "confession",
+      "title": "老板娘的苦衷",
+      "content": "被逼问到没有退路，沈三娘红着眼睛承认：亡夫生前欠了黄五爷一大笔钱，她只好把地窖借给码头帮藏货，只求别砸了旅店的招牌。",
+      "location": "lobby",
+      "points": [
+        "smuggling"
+      ],
+      "how": "拿着证据去逼问沈三娘",
+      "check": {
+        "attribute": "charm",
+        "modifier": 0
+      },
+      "core": false
+    }
+  ],
+  "npcs": [
+    {
+      "key": "shen",
+      "name": "沈三娘",
+      "identity": "雾港旅店的老板娘，三十多岁，守寡三年",
+      "personality": "精明强干，嘴硬心软，最怕旅店的名声坏掉",
+      "knows": [
+        "地窖借给了黄五爷的码头帮藏货，是为了还亡夫欠的债",
+        "不知道是谁杀了周墨，但心里怀疑和地窖有关",
+        "周墨最近常一个人往镇上跑"
+      ],
+      "wants": "尽快把事情当成意外了结，保住旅店",
+      "speech": "说话又快又冲，带点宁波口音，爱说“阿拉”",
+      "location": "lobby",
+      "attitude": "对客人客客气气；谁要是打听地窖，就立刻警惕起来"
+    },
+    {
+      "key": "afu",
+      "name": "阿福",
+      "identity": "旅店的伙计，十七岁，乡下来的",
+      "personality": "胆小老实，被人一吓就不敢说话",
+      "knows": [
+        "九点多看见一个左脸有疤的人提着灯从地窖出来",
+        "晚饭前刘贵借走过大堂的一盏马灯",
+        "刘贵上个月也来住过，那次登记的名字叫刘四",
+        "周先生从来不喝酒"
+      ],
+      "wants": "不想惹祸，只想等雾散了回乡下",
+      "speech": "说话结结巴巴，一紧张就直搓手",
+      "location": "kitchen",
+      "attitude": "怕被刘贵发现他看见了什么；觉得有人能护着他，才肯说实话"
+    },
+    {
+      "key": "huang",
+      "name": "黄五爷",
+      "identity": "码头帮的头目，五十来岁，表面上做海货生意",
+      "personality": "笑面虎，慢条斯理，从不亲自动手",
+      "knows": [
+        "地窖里的鸦片是他的",
+        "事后知道是刘疤子杀了周墨，也知道有一本暗账没找到",
+        "医生欠他一笔赌债"
+      ],
+      "wants": "拿回暗账，等雾散了带着人和货平安离开",
+      "speech": "慢条斯理，管谁都叫“老弟”，手里总盘着两个核桃",
+      "location": "guest-rooms",
+      "attitude": "对谁都客气；发现有人追查，先拿钱收买，收买不成就暗中威胁"
+    },
+    {
+      "key": "liu",
+      "name": "刘疤子",
+      "identity": "黄五爷的打手，化名刘贵住店，左脸一道刀疤",
+      "personality": "阴沉寡言，被逼急了会动手",
+      "knows": [
+        "是他杀了周墨",
+        "暗账不在账房，他还不知道在哪",
+        "阿福可能看见了他"
+      ],
+      "wants": "找到暗账自己卖钱，再让看见他的人闭嘴",
+      "speech": "话很少，嗓子粗，常用一个“嗯”打发人",
+      "location": "guest-rooms",
+      "attitude": "冷淡；发现有人盯着他，就会起疑心"
+    },
+    {
+      "key": "lu",
+      "name": "陆探长",
+      "identity": "镇警察局的探长，收过黄五爷的好处",
+      "personality": "懒散圆滑，怕担责任",
+      "knows": [
+        "平时收黄五爷的钱，对码头上的事睁一只眼闭一只眼"
+      ],
+      "wants": "早点结案回家，别惹麻烦",
+      "speech": "一口官腔，开口就是“这个嘛”",
+      "location": null,
+      "attitude": "想把案子当意外了结；可要是证据摆在眼前、又当着众人的面，他也不敢硬压"
+    },
+    {
+      "key": "qian",
+      "name": "钱掌柜",
+      "identity": "钱记当铺的掌柜，六十多岁",
+      "personality": "老实本分，最讲信用",
+      "knows": [
+        "周墨三天前当了一块怀表，还寄存了一个封好的信封，说“我要是出了事，就把它交给可靠的人”",
+        "前天一个穿得体面的年轻人来当了一只玉镯，像是大户人家跑出来的少爷；闲聊时跟他提过周先生也在这里存了东西"
+      ],
+      "wants": "守住周墨的托付",
+      "speech": "说话慢吞吞，爱讲老规矩",
+      "location": "pawnshop",
+      "attitude": "只认当票，或者真心为周墨讨公道的人"
+    },
+    {
+      "key": "ma",
+      "name": "老马",
+      "identity": "顺风号的船老大",
+      "personality": "见钱眼开，胆子不大",
+      "knows": [
+        "明晚十一点要去旅店地窖搬货",
+        "雾一散就开船去上海",
+        "船上的水手只当那些箱子是黄五爷的海货，不知道里面装的是什么"
+      ],
+      "wants": "多挣几个钱，别惹上官司",
+      "speech": "满嘴渔民的粗话",
+      "location": "pier",
+      "attitude": "给钱就说话，一听见“警察”两个字就装傻"
+    }
+  ],
+  "timeline": [
+    {
+      "key": "body-found",
+      "at": {
+        "day": 1,
+        "time": "22:00"
+      },
+      "event": "阿福在地窖发现周墨的尸体（开场）。",
+      "ifIgnored": ""
+    },
+    {
+      "key": "liu-searches",
+      "at": {
+        "day": 1,
+        "time": "23:30"
+      },
+      "event": "刘疤子趁夜溜进账房翻找暗账，撬开了铁皮柜，一无所获。",
+      "ifIgnored": "第二天早上，账房被翻得一团糟，铁皮柜也被撬开了。"
+    },
+    {
+      "key": "inspector-arrives",
+      "at": {
+        "day": 2,
+        "time": "08:00"
+      },
+      "event": "陆探长冒雾赶到旅店，草草看了一眼尸体，就说是失足摔死。",
+      "ifIgnored": "他在大堂喝着茶，准备傍晚结案。"
+    },
+    {
+      "key": "case-closed",
+      "at": {
+        "day": 2,
+        "time": "18:00"
+      },
+      "event": "如果还没人拿出他杀的证据，陆探长宣布周墨意外身亡，叫人把尸体抬走。",
+      "ifIgnored": "尸体被抬走，后脑的伤再也查不到了。"
+    },
+    {
+      "key": "cargo-moved",
+      "at": {
+        "day": 2,
+        "time": "23:00"
+      },
+      "event": "顺风号的人来地窖搬货。",
+      "ifIgnored": "鸦片被搬上了船，地窖里只剩空酒坛；如果马灯还没被发现，刘疤子也顺手把它扔进了海里。"
+    },
+    {
+      "key": "silence-afu",
+      "at": {
+        "day": 3,
+        "time": "03:00"
+      },
+      "event": "刘疤子摸进后厨，想让阿福永远闭嘴。",
+      "ifIgnored": "阿福被打成重伤，再也说不出那晚看见了什么。"
+    },
+    {
+      "key": "fog-lifts",
+      "at": {
+        "day": 3,
+        "time": "12:00"
+      },
+      "event": "雾散了，船可以开了。黄五爷带着刘疤子登上顺风号。",
+      "ifIgnored": "凶手和货一起离开雾港，进入“雾散人走”结局。"
+    }
+  ],
+  "endings": [
+    {
+      "key": "truth",
+      "title": "真相大白",
+      "condition": "雾散之前，拿出他杀的证据（后脑的伤或带血的马灯），再有任意一样证据指认刘疤子（阿福的证词、雨衣、登记簿等），当众揭穿或者交给陆探长。",
+      "summary": "刘疤子被五花大绑押走。如果暗账也公开了，黄五爷的走私线跟着被一网打尽，《申报》登出了头版新闻，沈三娘也终于摆脱了码头帮。"
+    },
+    {
+      "key": "deal",
+      "title": "私下交易",
+      "condition": "玩家拿到暗账以后，选择和黄五爷做交易：换钱、换平安，或者把医生的赌债一笔勾销。",
+      "summary": "黄五爷收回暗账，客客气气地送走了你们。周墨的死被定成意外，雾港一切照旧，只是每个知情人心里都多了一块石头。"
+    },
+    {
+      "key": "fog",
+      "title": "雾散人走",
+      "condition": "第三天中午雾散的时候，凶手还没有被揭穿。",
+      "summary": "顺风号鸣着汽笛离港，带走了凶手和货。周墨被草草下葬，这件事很快就没人再提了。"
+    }
+  ]
+}
