@@ -1,0 +1,191 @@
+{
+  "format": "longniang-trpg/scenario@1",
+  "title": "桂香斋的桂花糕",
+  "category": "puzzle",
+  "intro": "中秋节一早，县太爷家订的一笼桂花糕在后院不见了，墙根留着几个猫爪印。午时管家就要来取货。",
+  "genre": "古风日常",
+  "tone": "热闹的节日早上，轻松温暖，带一点小小的悬念",
+  "rules": 2,
+  "players": { "min": 1, "max": 2 },
+  "expectedDays": 1,
+  "relation": "coop",
+  "stress": false,
+  "start": { "label": "中秋节的早上", "day": 1, "time": "09:00" },
+  "safety": { "avoid": [] },
+  "opening": {
+    "background": "江南小镇的甜水巷里，有一家做了三十年点心的老铺子，叫「桂香斋」。中秋节一大早，铺子门口就排起了买月饼的长队。",
+    "situation": "周掌柜从后院冲进前铺，手里攥着一块空荡荡的蒸笼布：“桂花糕呢？县太爷家订的那一笼桂花糕，刚才还在后院晾着！”后院墙根留着几个白乎乎的猫爪印。离午时管家来取货，只剩三个时辰了。",
+    "known": [
+      "那笼桂花糕是县太爷家订的，午时管家来取",
+      "后院墙根有几个猫爪印",
+      "学徒小满一早上都在后院干活"
+    ]
+  },
+  "roles": [
+    {
+      "key": "niece",
+      "name": "掌柜的侄女",
+      "public": "在桂香斋帮忙的姑娘，手巧嘴甜，街坊都认得她。",
+      "secret": "前几天小满偷偷问过你：城隍庙后面那些没爹没娘的孩子，过节有没有月饼吃。",
+      "goal": "在管家来取货之前把事情弄清楚，别让小满白白挨打。",
+      "startLocation": "shop-front",
+      "attributes": { "strength": -1, "constitution": 0, "agility": 1, "intellect": 1, "perception": 1, "will": 0, "charm": 2 },
+      "specialties": ["做点心", "打听消息"],
+      "appearance": "十七八岁，围裙上总沾着面粉，鬓边插一小枝桂花。"
+    },
+    {
+      "key": "constable",
+      "name": "休沐的捕快",
+      "public": "县衙的年轻捕快，今天休沐，来桂香斋买月饼。",
+      "secret": "县太爷的管家托你顺路盯着这笼糕，说夫人最爱吃。出了差错，你回衙门也要挨骂。",
+      "goal": "找回桂花糕，或者给县太爷家一个说得过去的交代。",
+      "startLocation": "shop-front",
+      "attributes": { "strength": 2, "constitution": 1, "agility": 1, "intellect": 0, "perception": 1, "will": 0, "charm": -1 },
+      "specialties": ["追踪", "审问"],
+      "appearance": "二十出头，穿着便服，腰里还是习惯性地挂着铁尺。"
+    }
+  ],
+  "locations": [
+    {
+      "key": "shop-front",
+      "name": "前铺",
+      "description": "桂香斋的门面。柜台上摆满了各色月饼和糕点，门外排着买月饼的队，伙计忙得脚不沾地。柜台下面压着几本旧账本。",
+      "exits": [
+        { "to": "backyard", "minutes": 1 },
+        { "to": "temple-alley", "minutes": 10 }
+      ],
+      "features": ["柜台下面的旧账本", "门口排队的街坊"],
+      "x": 40,
+      "y": 58
+    },
+    {
+      "key": "backyard",
+      "name": "后院",
+      "description": "蒸笼一层层摞着，晾糕的竹架子空了一格。墙根下有几个白乎乎的猫爪印，小满蹲在井边洗蒸笼布。",
+      "exits": [{ "to": "shop-front", "minutes": 1 }],
+      "features": ["空了一格的竹架子", "墙根的猫爪印", "井边洗东西的小满"],
+      "x": 40,
+      "y": 36
+    },
+    {
+      "key": "temple-alley",
+      "name": "城隍庙后巷",
+      "description": "城隍庙后面一条窄窄的巷子，几个衣衫破旧的孩子蹲在墙角，嘴边还沾着糕屑。",
+      "exits": [{ "to": "shop-front", "minutes": 10 }],
+      "features": ["墙角的油纸", "蹲在墙角的孩子们"],
+      "x": 80,
+      "y": 64
+    }
+  ],
+  "truth": {
+    "summary": "中秋早上，学徒小满趁大家忙着卖月饼，把晾在后院的一笼桂花糕拿到城隍庙后巷，分给了那里的小乞儿——十年前他也是庙门口要饭的孩子，是周掌柜收留了他。他怕挨骂，在后院墙根用沾了面粉的手指按了几个猫爪印，想让人以为是野猫叼走的。其实赶紧再蒸一笼，午时前还来得及。",
+    "points": [
+      { "key": "taken-by-xiaoman", "text": "桂花糕是小满拿走的，猫爪印是他用面粉按出来的。" },
+      { "key": "given-to-children", "text": "糕分给了城隍庙后巷的孩子们；小满自己小时候也是那里的孩子。" }
+    ]
+  },
+  "clues": [
+    {
+      "key": "flour-paw",
+      "title": "面粉猫爪印",
+      "content": "墙根的猫爪印白白的全是面粉，一样大小、一样深，排得整整齐齐，像是用手指按出来的。墙头上也没有爬过的痕迹。",
+      "location": "backyard",
+      "points": ["taken-by-xiaoman"],
+      "how": "仔细看墙根的爪印",
+      "check": { "attribute": "perception", "modifier": 0 },
+      "core": true
+    },
+    {
+      "key": "sticky-sleeve",
+      "title": "小满的袖口",
+      "content": "小满的袖口上粘着桂花糖和油纸的碎屑，指甲缝里还有没洗掉的面粉。",
+      "location": "backyard",
+      "points": ["taken-by-xiaoman"],
+      "how": "和小满说话时留意他的手",
+      "check": null,
+      "core": false
+    },
+    {
+      "key": "oil-paper",
+      "title": "庙后的油纸",
+      "content": "后巷墙角扔着几张油纸，印着「桂香斋」的红戳，还带着桂花香。",
+      "location": "temple-alley",
+      "points": ["given-to-children"],
+      "how": "在后巷里找一找",
+      "check": null,
+      "core": true
+    },
+    {
+      "key": "children-words",
+      "title": "孩子们的话",
+      "content": "一个孩子舔着手指说：“小满哥哥说，今天过节，大家都要吃一块甜的。他说他小时候也住在这儿。”",
+      "location": "temple-alley",
+      "points": ["given-to-children", "taken-by-xiaoman"],
+      "how": "和孩子们好好说话（凶的话他们会跑掉）",
+      "check": { "attribute": "charm", "modifier": 0 },
+      "core": false
+    },
+    {
+      "key": "old-note",
+      "title": "旧账本里的字条",
+      "content": "旧账本里夹着一张十年前的字条：“庙门口捡的孩子，取名小满，留在铺里学手艺。”",
+      "location": "shop-front",
+      "points": ["given-to-children"],
+      "how": "翻柜台下面的旧账本",
+      "check": { "attribute": "intellect", "modifier": -1 },
+      "core": false
+    }
+  ],
+  "npcs": [
+    {
+      "key": "zhou",
+      "name": "周掌柜",
+      "identity": "桂香斋的掌柜，做了三十年点心",
+      "personality": "刀子嘴豆腐心，一着急就团团转",
+      "knows": ["十年前在城隍庙门口收留了要饭的小满", "那笼桂花糕是县太爷家订的，午时来取"],
+      "wants": "午时前交出一笼桂花糕，保住铺子的名声",
+      "speech": "说话又快又急，爱念叨“作孽哦”",
+      "location": "shop-front",
+      "attitude": "急得不行，谁能帮忙找回糕他都感激"
+    },
+    {
+      "key": "xiaoman",
+      "name": "小满",
+      "identity": "桂香斋的学徒，十四岁",
+      "personality": "老实、心软，不会撒谎",
+      "knows": ["糕是他拿走的，分给了城隍庙后巷的孩子们", "墙根的猫爪印是他用面粉按出来的"],
+      "wants": "别被赶出铺子，也想让那些孩子过个节",
+      "speech": "声音小，一紧张就结巴",
+      "location": "backyard",
+      "attitude": "心虚，被逼问会躲闪；好好跟他说，他就会说实话"
+    }
+  ],
+  "timeline": [
+    {
+      "key": "report-theft",
+      "at": { "day": 1, "time": "10:30" },
+      "event": "周掌柜觉得等不下去了，要去县衙报官，说铺子里遭了贼。",
+      "ifIgnored": "衙役上门搜查，小满吓得躲了起来，事情越闹越大。"
+    },
+    {
+      "key": "steward-arrives",
+      "at": { "day": 1, "time": "12:00" },
+      "event": "县太爷家的管家来取桂花糕。",
+      "ifIgnored": "交不出糕，管家当着排队的街坊数落桂香斋，铺子的名声坏了。"
+    }
+  ],
+  "endings": [
+    {
+      "key": "reunion",
+      "title": "团圆的桂花糕",
+      "condition": "弄清了真相，没让小满受冤枉，还赶在午时前补上了一笼糕，或者给了管家一个体面的交代。",
+      "summary": "新蒸的桂花糕香飘满巷。周掌柜听完小满的事，红着眼圈多蒸了一笼，让小满给后巷的孩子们送去。"
+    },
+    {
+      "key": "broken-sign",
+      "title": "砸了招牌",
+      "condition": "午时前没弄清真相，或者事情闹到了官府。",
+      "summary": "管家空着手回去，街坊议论纷纷。小满被当成了贼，那天晚上，他一个人坐在城隍庙的台阶上看月亮。"
+    }
+  ]
+}
